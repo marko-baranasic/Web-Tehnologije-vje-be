@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Osobni portfolio Marko Baranašić, studenta informatike. Upoznajte moj rad, projekte i vještine.">
+  <meta name="author" content="Ante Kovač">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Marko Baranašić – Portfolio">
+  <meta property="og:description" content="Student IT-a. HTML, CSS, Python i više.">
+  <meta property="og:image" content="img/og-preview.jpg">
+  <meta property="og:type" content="website">
+
+  <link rel="icon" href="img/favicon.ico">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Naslovnica – Marko Baranašić Portfolio</title>
+</head>
+<body>
+
+  <!-- Skip link za pristupačnost -->
+  <a href="#glavni-sadrzaj" class="skip-link">Preskoči na sadržaj</a>
+
+  <header>
+    <!-- Hamburger: checkbox trik bez JavaScripta -->
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+
+    <div class="header-inner">
+      <a href="index.html" class="logo">Marko Baranašić</a>
+
+      <label for="nav-toggle" class="hamburger" aria-label="Otvori izbornik">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+
+      <nav>
+        <ul>
+          <li><a href="index.html" class="aktivna">Početna</a></li>
+          <li><a href="o-meni.html">O meni</a></li>
+          <li><a href="projekti.html">Projekti</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="glavni-sadrzaj">
+
+    <!-- Hero sekcija -->
+    <section class="hero">
+      <div class="kontejner">
+        <p class="hero-pozdrav">Bok, ja sam</p>
+        <h1>Marko Baranašić</h1>
+        <p class="hero-opis">Student informacijskih tehnologija na Sveučilištu u Zadru.<br>
+          Gradim web stranice, učim svaki dan i volim rješavati probleme.</p>
+        <div class="hero-gumbi">
+          <a href="projekti.html" class="gumb gumb-primarni">Pogledaj projekte</a>
+          <a href="kontakt.html" class="gumb gumb-sekundarni">Kontaktiraj me</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kratki uvod -->
+    <section class="uvod kontejner">
+      <h2>Što radim?</h2>
+      <div class="kartice-uvod">
+
+        <div class="kartica-uvod">
+          <div class="kartica-ikona">🌐</div>
+          <h3>Web razvoj</h3>
+          <p>Izrađujem statičke web stranice koristeći HTML i CSS. Fokus mi je na čistom kodu i dobrom dizajnu.</p>
+        </div>
+
+        <div class="kartica-uvod">
+          <div class="kartica-ikona">📐</div>
+          <h3>Dizajn</h3>
+          <p>Radim promotivne materijale i održavam društvene mreže.</p>
+        </div>
+
+        <div class="kartica-uvod">
+          <div class="kartica-ikona">🎓</div>
+          <h3>Učenje</h3>
+          <p>Trenutno studiram i svaki dan učim nešto novo. Python, Java, HTML, atletičar.</p>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="kontejner footer-inner">
+      <p>&copy; 2026 Marko Baranašić</p>
+      <div class="footer-linkovi">
+        <a href="https://github.com/marko-baranasic" target="_blank" rel="noopener">GitHub</a>
+        <a href="www.linkedin.com/in/marko-baranasic" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:mbaranasi25@unizd.hr">mbaranasi25@unizd.hr</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

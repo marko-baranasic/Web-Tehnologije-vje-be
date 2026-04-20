@@ -1,0 +1,859 @@
+/* ============================================
+   style.css – Portfolio Marko Barana
+   Struktura:
+   1. Tokeni (CSS varijable)
+   2. Reset i osnove
+   3. Layout i kontejner
+   4. Skip link
+   5. Header i navigacija
+   6. Hamburger izbornik (samo CSS)
+   7. Hero sekcija
+   8. Opći dijelovi stranica
+   9. Stranica: O meni
+   10. Stranica: Projekti
+   11. Stranica: Kontakt
+   12. Footer
+   13. Media queries (mobitel)
+============================================ */
+
+
+/* ------------------------------------------
+   1. TOKENI – CSS varijable
+------------------------------------------ */
+:root {
+  /* Boje */
+  --boja-primarna:   #2563eb;   /* plava – gumbi, linkovi */
+  --boja-hover:      #1d4ed8;   /* tamnija plava za hover */
+  --boja-tekst:      #1a1a2e;   /* gotovo crna za tekst */
+  --boja-siva:       #6b7280;   /* siva za sporedni tekst */
+  --boja-pozadina:   #f8fafc;   /* gotovo bijela pozadina */
+  --boja-bijela:     #ffffff;
+  --boja-obrub:      #e2e8f0;   /* svjetlo siva za obrube */
+  --boja-hero:       #1e3a5f;   /* tamno plava za hero */
+
+  /* Oznake vještina */
+  --boja-dobro:      #16a34a;
+  --boja-srednje:    #d97706;
+  --boja-pocetnik:   #6b7280;
+
+  /* Razmaci */
+  --razmak-xs:  0.25rem;  /*  4px */
+  --razmak-s:   0.5rem;   /*  8px */
+  --razmak-m:   1rem;     /* 16px */
+  --razmak-l:   1.5rem;   /* 24px */
+  --razmak-xl:  2rem;     /* 32px */
+  --razmak-xxl: 4rem;     /* 64px */
+
+  /* Tipografija */
+  --font-tijelo:   Georgia, 'Times New Roman', serif;
+  --font-naslovi:  'Trebuchet MS', Tahoma, sans-serif;
+  --velicina-baza: 1rem;       /* 16px */
+  --velicina-mala: 0.875rem;   /* 14px */
+  --velicina-h1:   2.5rem;
+  --velicina-h2:   1.75rem;
+  --velicina-h3:   1.25rem;
+
+  /* Ostalo */
+  --radijus:        8px;
+  --radijus-veliki: 12px;
+  --sjena:          0 2px 8px rgba(0, 0, 0, 0.08);
+  --sjena-hover:    0 4px 16px rgba(0, 0, 0, 0.14);
+  --max-sirina:     1100px;
+  --header-visina:  64px;
+}
+
+
+/* ------------------------------------------
+   2. RESET I OSNOVE
+------------------------------------------ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-tijelo);
+  font-size: var(--velicina-baza);
+  color: var(--boja-tekst);
+  background-color: var(--boja-pozadina);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1; /* main zauzima ostatak visine – footer je na dnu */
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--boja-primarna);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+
+ul {
+  list-style: none; /* Kod listi skida točkcie*/
+}
+
+
+/* ------------------------------------------
+   3. LAYOUT – KONTEJNER
+------------------------------------------ */
+.kontejner {
+  max-width: var(--max-sirina);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--razmak-l);
+  padding-right: var(--razmak-l);
+}
+
+.odjeljak {
+  padding-top: var(--razmak-xxl);
+  padding-bottom: var(--razmak-xxl);
+}
+
+
+/* ------------------------------------------
+   4. SKIP LINK (pristupačnost)
+------------------------------------------ */
+.skip-link {
+  position: absolute;
+  top: -100px; /* sakriven van ekrana */
+  left: var(--razmak-m);
+  background: var(--boja-primarna);
+  color: var(--boja-bijela);
+  padding: var(--razmak-s) var(--razmak-m);
+  border-radius: var(--radijus);
+  font-weight: bold;
+  z-index: 999;
+}
+
+/* Kad dobije fokus (Tab tipka), pojavljuje se */
+.skip-link:focus {
+  top: var(--razmak-m);
+}
+
+
+/* ------------------------------------------
+   5. HEADER I NAVIGACIJA
+------------------------------------------ */
+header {
+  background-color: var(--boja-bijela);
+  border-bottom: 1px solid var(--boja-obrub);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: var(--header-visina);
+}
+
+.header-inner {
+  max-width: var(--max-sirina);
+  margin: 0 auto;
+  padding: 0 var(--razmak-l);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo */
+.logo {
+  font-family: var(--font-naslovi);
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: var(--boja-tekst);
+  text-decoration: none;
+}
+
+.logo:hover {
+  color: var(--boja-primarna);
+  text-decoration: none;
+}
+
+/* Desktop navigacija */
+nav ul {
+  display: flex;
+  gap: var(--razmak-l);
+}
+
+nav ul li a {
+  color: var(--boja-siva);
+  font-family: var(--font-naslovi);
+  font-size: var(--velicina-mala);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  padding: var(--razmak-xs) 0;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+nav ul li a:hover {
+  color: var(--boja-primarna);
+  text-decoration: none;
+}
+
+/* Aktivna stavka */
+nav ul li a.aktivna {
+  color: var(--boja-primarna);
+  border-bottom-color: var(--boja-primarna);
+  font-weight: bold;
+}
+
+
+/* ------------------------------------------
+   6. HAMBURGER IZBORNIK (samo CSS, bez JS)
+
+   Kako radi:
+   - <input type="checkbox" id="nav-toggle"> je sakriven
+   - <label for="nav-toggle"> je hamburger ikona
+   - Kad je checkbox :checked, navigacija se prikazuje
+   - Na desktopu je checkbox i hamburger sakriven
+------------------------------------------ */
+
+/* Checkbox je uvijek sakriven */
+.nav-toggle {
+  display: none;
+}
+
+/* Hamburger gumb (3 crte) – vidljiv samo na mobitelu */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 20px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: var(--boja-tekst);
+  border-radius: 3px;
+  transition: background-color 0.2s;
+}
+
+.hamburger:hover span {
+  background-color: var(--boja-primarna);
+}
+
+
+/* ------------------------------------------
+   7. HERO SEKCIJA (index.html)
+------------------------------------------ */
+.hero {
+  background-color: var(--boja-hero);
+  color: var(--boja-bijela);
+  padding: var(--razmak-xxl) 0;
+  text-align: center;
+}
+
+.hero-pozdrav {
+  font-size: 1.1rem;
+  color: #93c5fd; /* svjetlo plava */
+  margin-bottom: var(--razmak-s);
+}
+
+.hero h1 {
+  color: var(--boja-bijela);
+  font-size: 3rem;
+}
+
+.hero-opis {
+  font-size: 1.1rem;
+  color: #cbd5e1; /* svjetlo siva */
+  max-width: 600px;
+  margin: 0 auto var(--razmak-xl);/* centriranje*/
+  line-height: 1.7;
+}
+
+.hero-gumbi {
+  display: flex;
+  gap: var(--razmak-m);
+  justify-content: center;
+  flex-wrap: wrap;/* ide u novi red ako nema mista*/
+}
+
+
+/* ------------------------------------------
+   7b. GUMBI
+------------------------------------------ */
+.gumb {
+  display: inline-block;
+  padding: 0.75rem 1.75rem;
+  border-radius: var(--radijus);
+  font-family: var(--font-naslovi);
+  font-weight: bold;
+  font-size: var(--velicina-mala);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  border: 2px solid transparent;
+  text-decoration: none;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.gumb-primarni {
+  background-color: var(--boja-primarna);
+  color: var(--boja-bijela);
+  border-color: var(--boja-primarna);
+}
+
+.gumb-primarni:hover {
+  background-color: var(--boja-hover);
+  border-color: var(--boja-hover);
+  text-decoration: none;
+  color: var(--boja-bijela);
+}
+
+.gumb-sekundarni {
+  background-color: transparent;
+  color: var(--boja-bijela);
+  border-color: var(--boja-bijela);
+}
+
+.gumb-sekundarni:hover {
+  background-color: var(--boja-bijela);
+  color: var(--boja-hero);
+  text-decoration: none;
+}
+
+.gumb-mali {
+  padding: 0.4rem 1rem;
+  font-size: 0.8rem;
+  color: var(--boja-primarna);
+  border-color: var(--boja-primarna);
+  background-color: transparent;
+}
+
+.gumb-mali:hover {
+  background-color: var(--boja-primarna);
+  color: var(--boja-bijela);
+  text-decoration: none;
+}
+
+.gumb-mali.gumb-sekundarni {
+  color: var(--boja-siva);
+  border-color: var(--boja-obrub);
+}
+
+.gumb-mali.gumb-sekundarni:hover {
+  background-color: var(--boja-obrub);
+  color: var(--boja-tekst);
+}
+
+
+/* ------------------------------------------
+   8. OPĆI DIJELOVI STRANICA
+------------------------------------------ */
+
+/* Zaglavlje interne stranice */
+.stranica-zaglavlje {
+  padding-top: var(--razmak-xxl);
+  padding-bottom: var(--razmak-xl);
+  border-bottom: 1px solid var(--boja-obrub);
+}
+
+.stranica-zaglavlje h1 {
+  margin-bottom: var(--razmak-s); /* naslov će imat mjesta ispod sebe nes sitno*/
+}
+
+.podnaslov {
+  color: var(--boja-siva);
+  font-size: 1.1rem;
+}
+
+/* Kartice uvoda (index.html) */
+.kartice-uvod {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--razmak-xl);
+  margin-top: var(--razmak-xl);
+}
+
+.kartica-uvod {
+  background-color: var(--boja-bijela);
+  border: 1px solid var(--boja-obrub);
+  border-radius: var(--radijus-veliki);
+  padding: var(--razmak-xl);
+  text-align: center;
+}
+
+.kartica-ikona {
+  font-size: 2.5rem;
+  margin-bottom: var(--razmak-m);
+}
+
+.kartica-uvod h3 {
+  margin-bottom: var(--razmak-s);
+}
+
+.kartica-uvod p {
+  color: var(--boja-siva);
+}
+
+.uvod h2 {
+  margin-bottom: var(--razmak-s);
+}
+
+
+/* ------------------------------------------
+   9. STRANICA: O MENI
+------------------------------------------ */
+
+/* Bio grid: slika + tekst */
+.bio-grid {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: var(--razmak-xxl);
+  align-items: start;
+}
+
+.bio-slika img {
+  border-radius: var(--radijus-veliki);
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  min-height: 300px;
+}
+
+.bio-tekst h2 {
+  margin-bottom: var(--razmak-m);
+}
+
+.bio-tekst p {
+  color: var(--boja-siva);
+  margin-bottom: var(--razmak-m);
+}
+
+/* Tablica vještina */
+.tablica-vjestina {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: var(--razmak-xl);
+  background-color: var(--boja-bijela);
+  border-radius: var(--radijus-veliki);
+  overflow: hidden; /* zaobljeni rubovi */
+  box-shadow: var(--sjena);
+}
+
+.tablica-vjestina th {
+  background-color: var(--boja-hero);
+  color: var(--boja-bijela);
+  text-align: left;
+  padding: var(--razmak-m) var(--razmak-l);
+  font-family: var(--font-naslovi);
+  font-size: var(--velicina-mala);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.tablica-vjestina td {
+  padding: var(--razmak-m) var(--razmak-l);
+  border-bottom: 1px solid var(--boja-obrub);
+  color: var(--boja-siva);
+}
+
+.tablica-vjestina tr:last-child td {
+  border-bottom: none;
+}
+
+.tablica-vjestina tr:hover td {
+  background-color: var(--boja-pozadina);
+}
+
+/* Oznake razine */
+.razina {
+  display: inline-block;
+  padding: var(--razmak-xs) var(--razmak-s);
+  border-radius: 999px; /* pill oblik */
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: var(--boja-bijela);
+}
+
+.razina-dobro    { background-color: var(--boja-dobro); }
+.razina-srednje  { background-color: var(--boja-srednje); }
+.razina-pocetnik { background-color: var(--boja-pocetnik); }
+
+/* Obrazovanje */
+.obrazovanje-lista {
+  margin-top: var(--razmak-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--razmak-l);
+}
+
+.obrazovanje-stavka {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: var(--razmak-l);
+  padding: var(--razmak-l);
+  background-color: var(--boja-bijela);
+  border: 1px solid var(--boja-obrub);
+  border-radius: var(--radijus-veliki);
+}
+
+.obrazovanje-godina {
+  font-family: var(--font-naslovi);
+  font-weight: bold;
+  color: var(--boja-primarna);
+  font-size: var(--velicina-mala);
+  padding-top: var(--razmak-xs);
+}
+
+.obrazovanje-opis h3 {
+  margin-bottom: var(--razmak-xs);
+}
+
+.obrazovanje-opis p {
+  color: var(--boja-siva);
+}
+
+
+/* ------------------------------------------
+   10. STRANICA: PROJEKTI
+------------------------------------------ */
+.projekti-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--razmak-xl);
+}
+
+.projekt-kartica {
+  background-color: var(--boja-bijela);
+  border: 1px solid var(--boja-obrub);
+  border-radius: var(--radijus-veliki);
+  overflow: hidden;
+  box-shadow: var(--sjena);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.projekt-kartica:hover {
+  box-shadow: var(--sjena-hover);
+  transform: translateY(-3px);
+}
+
+.projekt-slika img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  background-color: var(--boja-obrub); /* fallback */
+}
+
+.projekt-sadrzaj {
+  padding: var(--razmak-l);
+}
+
+.projekt-oznake {
+  display: flex;
+  gap: var(--razmak-s);
+  flex-wrap: wrap;
+  margin-bottom: var(--razmak-m);
+}
+
+.oznaka {
+  background-color: #dbeafe; /* svjetlo plava */
+  color: var(--boja-hover);
+  padding: var(--razmak-xs) var(--razmak-s);
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.projekt-sadrzaj h2 {
+  font-size: var(--velicina-h3);
+  margin-bottom: var(--razmak-s);
+}
+
+.projekt-sadrzaj p {
+  color: var(--boja-siva);
+  margin-bottom: var(--razmak-m);
+  font-size: var(--velicina-mala);
+}
+
+.projekt-linkovi {
+  display: flex;
+  gap: var(--razmak-s);
+  flex-wrap: wrap;
+}
+
+
+/* ------------------------------------------
+   11. STRANICA: KONTAKT
+------------------------------------------ */
+.kontakt-grid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: var(--razmak-xxl);
+  align-items: start;
+}
+
+.kontakt-forma-odjeljak h2,
+.kontakt-info h2 {
+  margin-bottom: var(--razmak-l);
+}
+
+/* Forma */
+.kontakt-forma {
+  display: flex;
+  flex-direction: column;
+  gap: var(--razmak-l);
+}
+
+.forma-polje {
+  display: flex;
+  flex-direction: column;
+  gap: var(--razmak-s);
+}
+
+.forma-polje label {
+  font-family: var(--font-naslovi);
+  font-size: var(--velicina-mala);
+  font-weight: bold;
+  color: var(--boja-tekst);
+}
+
+.obavezno {
+  color: #dc2626; /* crvena */
+}
+
+.forma-polje input,
+.forma-polje select,
+.forma-polje textarea {
+  width: 100%;
+  padding: var(--razmak-m);
+  border: 1px solid var(--boja-obrub);
+  border-radius: var(--radijus);
+  font-family: var(--font-tijelo);
+  font-size: var(--velicina-baza);
+  color: var(--boja-tekst);
+  background-color: var(--boja-bijela);
+  transition: border-color 0.2s;
+}
+
+.forma-polje input:hover,
+.forma-polje select:hover,
+.forma-polje textarea:hover {
+  border-color: var(--boja-primarna);
+}
+
+.forma-polje textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+.forma-napomena {
+  font-size: var(--velicina-mala);
+  color: var(--boja-siva);
+  margin-top: calc(-1 * var(--razmak-s));
+}
+
+/* Kontakt info sidebar */
+.kontakt-lista {
+  display: flex;
+  flex-direction: column;
+  gap: var(--razmak-m);
+  background-color: var(--boja-bijela);
+  border: 1px solid var(--boja-obrub);
+  border-radius: var(--radijus-veliki);
+  padding: var(--razmak-xl);
+}
+
+.kontakt-lista li {
+  display: flex;
+  flex-direction: column;
+  gap: var(--razmak-xs);
+}
+
+.kontakt-lista strong {
+  font-size: var(--velicina-mala);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--boja-siva);
+}
+
+.kontakt-napomena {
+  margin-top: var(--razmak-l);
+  padding: var(--razmak-m);
+  background-color: #eff6ff; /* jako svjetlo plava */
+  border-left: 4px solid var(--boja-primarna);
+  border-radius: 0 var(--radijus) var(--radijus) 0;
+}
+
+.kontakt-napomena p {
+  font-size: var(--velicina-mala);
+  color: var(--boja-siva);
+}
+
+
+/* ------------------------------------------
+   12. FOOTER
+------------------------------------------ */
+footer {
+  background-color: var(--boja-hero);
+  color: #cbd5e1;
+  padding: var(--razmak-xl) 0;
+  margin-top: auto;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--razmak-m);
+}
+
+.footer-inner p {
+  font-size: var(--velicina-mala);
+}
+
+.footer-linkovi {
+  display: flex;
+  gap: var(--razmak-l);
+  flex-wrap: wrap;
+}
+
+.footer-linkovi a {
+  color: #93c5fd;
+  font-size: var(--velicina-mala);
+  text-decoration: none;
+}
+
+.footer-linkovi a:hover {
+  color: var(--boja-bijela);
+  text-decoration: underline;
+}
+
+
+/* ------------------------------------------
+   13. MEDIA QUERIES – MOBITEL (max 768px)
+------------------------------------------ */
+@media (max-width: 768px) {
+
+  /* Tipografija manji na mobitelu */
+  :root {
+    --velicina-h1: 1.9rem;
+    --velicina-h2: 1.4rem;
+  }
+
+  /* Prikaz hamburger gumba */
+  .hamburger {
+    display: flex;
+  }
+
+  /*
+    Navigacija – sakrivena dok checkbox nije označen.
+    Pozicionira se ispod headera.
+  */
+  nav {
+    display: none;
+    position: absolute;
+    top: var(--header-visina);
+    left: 0;
+    right: 0;
+    background-color: var(--boja-bijela);
+    border-bottom: 2px solid var(--boja-primarna);
+    padding: var(--razmak-m) 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+
+  /* Kad je checkbox označen → prikaži navigaciju */
+  .nav-toggle:checked ~ .header-inner nav {
+    display: block;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 0;
+    padding: 0 var(--razmak-l);
+  }
+
+  nav ul li a {
+    display: block;
+    padding: var(--razmak-m) 0;
+    border-bottom: 1px solid var(--boja-obrub);
+    font-size: var(--velicina-baza);
+  }
+
+  nav ul li:last-child a {
+    border-bottom: none;
+  }
+
+  /* Hero */
+  .hero {
+    padding: var(--razmak-xxl) 0;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero-gumbi {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Kartice uvoda: 1 stupac */
+  .kartice-uvod {
+    grid-template-columns: 1fr;
+  }
+
+  /* Bio: slika iznad teksta */
+  .bio-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bio-slika img {
+    max-width: 240px;
+    margin: 0 auto;
+  }
+
+  /* Tablica vještina: sakrij zadnji stupac */
+  .tablica-vjestina th:last-child,
+  .tablica-vjestina td:last-child {
+    display: none;
+  }
+
+  /* Obrazovanje: 1 stupac */
+  .obrazovanje-stavka {
+    grid-template-columns: 1fr;
+    gap: var(--razmak-s);
+  }
+
+  /* Projekti: 1 stupac */
+  .projekti-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Kontakt: 1 stupac */
+  .kontakt-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Footer: centriran */
+  .footer-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+}

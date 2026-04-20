@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Kontaktirajte Marka Baranašića – pošaljite poruku, prijedlog suradnje ili samo pozdrav.">
+  <meta name="author" content="Ante Kovač">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Kontakt – Marko Baranašić">
+  <meta property="og:description" content="Javite se Marku Baranašiću – forma za kontakt i podaci.">
+  <meta property="og:image" content="img/og-preview.jpg">
+  <meta property="og:type" content="website">
+
+  <link rel="icon" href="img/favicon.ico">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Kontakt –Marko Baranašić Portfolio</title>
+</head>
+<body>
+
+  <a href="#glavni-sadrzaj" class="skip-link">Preskoči na sadržaj</a>
+
+  <header>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+
+    <div class="header-inner">
+      <a href="index.html" class="logo">Marko Baranašić</a>
+
+      <label for="nav-toggle" class="hamburger" aria-label="Otvori izbornik">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+
+      <nav>
+        <ul>
+          <li><a href="index.html">Početna</a></li>
+          <li><a href="o-meni.html">O meni</a></li>
+          <li><a href="projekti.html">Projekti</a></li>
+          <li><a href="kontakt.html" class="aktivna">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="glavni-sadrzaj">
+
+    <div class="kontejner stranica-zaglavlje">
+      <h1>Kontakt</h1>
+      <p class="podnaslov">Imate pitanje ili prijedlog? Pišite slobodno!</p>
+    </div>
+
+    <div class="kontejner kontakt-grid odjeljak">
+
+      <!-- Forma -->
+      <section class="kontakt-forma-odjeljak">
+        <h2>Pošaljite poruku</h2>
+
+        <form class="kontakt-forma" action="#" method="post" novalidate>
+
+          <div class="forma-polje">
+            <label for="ime">Ime i prezime <span class="obavezno">*</span></label>
+            <input
+              type="text"
+              id="ime"
+              name="ime"
+              placeholder="npr. Marko Marić"
+              required
+              autocomplete="name">
+          </div>
+
+          <div class="forma-polje">
+            <label for="email">E-mail adresa <span class="obavezno">*</span></label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="npr. marko@email.com"
+              required
+              autocomplete="email">
+          </div>
+
+          <div class="forma-polje">
+            <label for="tema">Tema poruke <span class="obavezno">*</span></label>
+            <select id="tema" name="tema" required>
+              <option value="">-- Odaberite temu --</option>
+              <option value="suradnja">Prijedlog suradnje</option>
+              <option value="pitanje">Pitanje o projektu</option>
+              <option value="posao">Posao ili stažiranje</option>
+              <option value="ostalo">Ostalo</option>
+            </select>
+          </div>
+
+          <div class="forma-polje">
+            <label for="poruka">Poruka <span class="obavezno">*</span></label>
+            <textarea
+              id="poruka"
+              name="poruka"
+              rows="6"
+              placeholder="Napišite svoju poruku ovdje..."
+              required></textarea>
+          </div>
+
+          <p class="forma-napomena"><span class="obavezno">*</span> Obavezna polja</p>
+
+          <button type="submit" class="gumb gumb-primarni">Pošalji poruku</button>
+
+        </form>
+      </section>
+
+      <!-- Kontakt info -->
+      <aside class="kontakt-info">
+        <h2>Direktni kontakt</h2>
+
+        <ul class="kontakt-lista">
+          <li>
+            <strong>E-mail</strong>
+            <a href="mailto:mbaranasi25@unizd.hr">mbaranasi25@unizd.hr</a>
+          </li>
+          <li>
+            <strong>Lokacija</strong>
+            <span>Zadar, Hrvatska</span>
+          </li>
+          <li>
+            <strong>GitHub</strong>
+            <a href="https://github.com/marko-baranasic" target="_blank" rel="noopener">github.com/marko-baranasic</a>
+          </li>
+          <li>
+            <strong>LinkedIn</strong>
+            <a href="www.linkedin.com/in/marko-baranasic" target="_blank" rel="noopener">linkedin.com/in/marko-baranasic</a>
+          </li>
+        </ul>
+
+        <div class="kontakt-napomena">
+          <p>Odgovaram u roku od 1–2 radna dana. Slobodno pišite na engleskom ili hrvatskom.</p>
+        </div>
+      </aside>
+
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="kontejner footer-inner">
+      <p>&copy; 2026 Marko Baranašić</p>
+      <div class="footer-linkovi">
+        <a href="https://github.com/marko-baranasic" target="_blank" rel="noopener">GitHub</a>
+        <a href="www.linkedin.com/in/marko-baranasic" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:mbaranasi25@unizd.hr">mbaranasi25@unizd.hr</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
