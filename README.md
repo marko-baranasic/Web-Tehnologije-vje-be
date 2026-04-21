@@ -1,4 +1,4 @@
-# Osobni portfolio – Ante Kovač
+# Osobni portfolio – Marko Baranašić
 
 Statička web stranica izrađena kao Projekt 1 za kolegij **Uvod u web tehnologije**
 na Sveučilištu u Zadru, studij SIT, ak. god. 2025./2026.
