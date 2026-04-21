@@ -1,5 +1,5 @@
 /* ============================================
-   style.css – Portfolio Marko Barana
+   style.css – Portfolio Marko Baranašić
    Struktura:
    1. Tokeni (CSS varijable)
    2. Reset i osnove
@@ -749,10 +749,10 @@ footer {
 /* ------------------------------------------
    13. MEDIA QUERIES – MOBITEL (max 768px)
 ------------------------------------------ */
-@media (max-width: 768px) {
+@media (max-width: 768px) { /*primjenjuje se samo kada je širina<=486px*/
 
   /* Tipografija manji na mobitelu */
-  :root {
+  :root { /*varijable unutar roota se smanjuju veličine naslova za mobili prikaz*/
     --velicina-h1: 1.9rem;
     --velicina-h2: 1.4rem;
   }
@@ -767,12 +767,12 @@ footer {
     Pozicionira se ispod headera.
   */
   nav {
-    display: none;
-    position: absolute;
-    top: var(--header-visina);
+    display: none;  /* inicijalno skriven */
+    position: absolute; /* "iznad" svih ostali, ne preklapa se */
+    top: var(--header-visina); /* samo mu govorimo gdje  počinjemo */
     left: 0;
-    right: 0;
-    background-color: var(--boja-bijela);
+    right: 0; /* ovo mu omogucuje da ide preko cijele širine ekrana */
+    background-color: var(--boja-bijela); /* ako ovo ne stavim onda taj otvoreni izbornik bude proziran i elementi ispod su vidljivi */
     border-bottom: 2px solid var(--boja-primarna);
     padding: var(--razmak-m) 0;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -784,13 +784,13 @@ footer {
   }
 
   nav ul {
-    flex-direction: column;
+    flex-direction: column; /* ul mijenja iz horiznotalnog u vertikalni */
     gap: 0;
     padding: 0 var(--razmak-l);
   }
 
   nav ul li a {
-    display: block;
+    display: block; /* lakše klikanje linkova jer ne moramo sliva nego blok koji zauzima ciju širinu spremnika */
     padding: var(--razmak-m) 0;
     border-bottom: 1px solid var(--boja-obrub);
     font-size: var(--velicina-baza);
@@ -816,7 +816,7 @@ footer {
 
   /* Kartice uvoda: 1 stupac */
   .kartice-uvod {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr;/* maltene govorimo mu da od od te grida napravi samo jedan stupac, fr fraction, dio */
   }
 
   /* Bio: slika iznad teksta */
