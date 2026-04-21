@@ -232,7 +232,7 @@ nav ul li a.aktivna {
   display: none;
 }
 
-/* Hamburger gumb (3 crte) – vidljiv samo na mobitelu */
+/* Hamburger gumb – vidljiv samo na mobitelu */
 .hamburger {
   display: none;
   flex-direction: column;
