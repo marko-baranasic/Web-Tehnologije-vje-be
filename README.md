@@ -46,17 +46,16 @@ Ili koristiti **Live Server** ekstenziju u VS Codeu (desni klik na `index.html` 
 ├── img/
 │   ├── profil.jpg          ← fotografija (300×300 px)
 │   ├── og-preview.jpg      ← Open Graph slika (1200×630 px)
-│   ├── projekt-portfolio.jpg
-│   ├── projekt-vremenska.jpg
-│   ├── projekt-kalkulator.jpg
+│   ├── projekt-maticna.pjpgng
+│   ├── projekt-nautic.png
+│   ├── projekt-portfolio.png
 │   ├── projekt-raspored.jpg
-│   └── favicon.ico
 └── README.md
 ```
 
 ## Live verzija
 
-[https://ante-kovac.netlify.app](https://ante-kovac.netlify.app)
+[https://web-tehnologije-projekt1.netlify.app/](https://web-tehnologije-projekt1.netlify.app/)
 
 ## Autor
 
